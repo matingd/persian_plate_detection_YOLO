@@ -1,25 +1,23 @@
 ## 📖 Introduction
 
-A deep-learning pipeline for **brain tumor segmentation** on the BraTS dataset. We segment three tumor sub-regions:
+A YOLOv8-based pipeline for **Persian license plate and digit detection** using the Persian Plate Detection dataset. The repo includes both full-plate detection and individual digit recognition.
 
-* **Whole Tumor (WT)**
-* **Tumor Core (TC)**
-* **Enhancing Tumor (ET)**
-
-Modalities used: T1, T1Gd T2, FLAIR.
+* **Models**: YOLOv8n for plate detection, YOLOv8s for digit detection  
+* **Tasks**:  
+  - **Plate Detection**: Localize entire license plates  
+  - **Digit Detection**: Recognize individual characters within each plate  
 ---
 
 ## 🏗️ Architecture
 
-![Architecture Diagram](assets/3D-U-Net-architecture-diagram.png)
+We leverage the Ultralytics YOLOv8 framework for efficient, real-time detection. Key components:
 
-We employ a 3D U-Net (UNet3D) architecture for volumetric brain tumor segmentation. This model processes the full 3D MRI volumes directly, preserving spatial context across slices. Key components:
-
-1. **Encoder**: Four 3D convolutional downsampling blocks (Conv3D → ReLU → MaxPool3D)
-2. **Bottleneck**: Dilated 3D convolution layers for capturing multi-scale context
-3. **Decoder**: Four 3D upsampling blocks with skip-connections to recover spatial resolution
-4. **Attention Gates**: Integrated on skip paths to refine feature selection and suppress irrelevant activations
-
+1. **Backbone & Neck**: CSPDarknet and PANet for feature extraction and fusion  
+2. **Head**: Single-stage detector predicting bounding boxes, classes, and objectness  
+3. **Losses**:  
+   - Box loss (CIoU)  
+   - Classification loss (BCE)  
+   - Distribution focal loss (DFL) for precise bounding 
 ---
 
 ## 🛠️ Setup & Installation
@@ -33,11 +31,29 @@ pip install -r requirements.txt
 
 **Data**
 
-Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datasets/awsaf49/brats20-dataset-training-validation)].
+Download Persian Plate Detection dataset from 
+```
+import kagglehub
+
+# Download latest version
+data_path = kagglehub.dataset_download("nimapourmoradi/car-plate-detection-yolov8")
+
+print("Path to dataset files:", data_path)
+```
+
+Download Persian Car Plates Digits Detection dataset from 
+```
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("nimapourmoradi/persian-car-plates-digits-detection-yolov8")
+
+print("Path to dataset files:", path)
+```
 
 ---
 
-## 📊 Predicted & Real images
+## 📊 Predicted images
 
 <table>
   <tr>
@@ -84,15 +100,33 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
 
 ---
 
+## 🎯 Training & Validation
+## Plate Detection (YOLOv8n)
+```
+yolo train model=yolov8n.pt data=configs/plate.yaml epochs=40 imgsz=640
+```
+- **Best mAP@0.5**: 0.995
+- **Val Precision**: 0.991
+- **Val Recall**: 1.000
+
+## Digit Detection (YOLOv8s)
+```
+yolo train model=yolov8s.pt data=configs/digits.yaml epochs=50 imgsz=640
+```
+- **Best mAP@0.5**: 0.983
+- **Val Precision**: 0.970
+- **Val Recall**: 0.985
+
+---
+
 ## 📝 License
 - **Code License**: This repository’s **code** is released under the MIT License.
-- **Dataset License**: MRI scans and annotations were downloaded from Kaggle and are subject to Kaggle’s dataset license terms. 
+- **Dataset License**: Persian Plate Detection & Persian Car Plates Digits Detection dataset from Kaggle, subject to Kaggle’s dataset license terms.
 
 ---
 
 ## 🤝 Contributing & Contact
 Feel free to reach out by opening an issue or pull request. For direct questions, you may also contact:
 * **Author**: Matin Gharehdaghi matingd.work@gmail.com
-* **Acknowledgements**: Thanks to the MICCAI BraTS organizers and the research community.
 
 Feel free to open issues or PRs for improvements!
