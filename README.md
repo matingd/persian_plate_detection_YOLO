@@ -56,7 +56,7 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
 
 <table>
   <tr>
-    <td colspan="3" align="center"><img src="assets/yolo_map50_95_curve.png" width="960"/></td>
+    <td colspan="3" align="center"><img src="assets/yolo_map50_95_curve.png" width="600"/></td>
   </tr>
   <tr>
     <td><img src="assets/yolo_recall_curve.png" width="480"/></td>
@@ -74,7 +74,7 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
 
 <table>
   <tr>
-    <td colspan="3" align="center"><img src="assets/digits_map_curves.png" width="960"/></td>
+    <td colspan="3" align="center"><img src="assets/digits_map_curves.png" width="600"/></td>
   </tr>
   <tr>
     <td><img src="assets/digits_precision_recall.png" width="480"/></td>
