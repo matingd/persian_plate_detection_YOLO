@@ -41,12 +41,12 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
 
 <table>
   <tr>
-    <td><img src="test images/plate1_detected.jpg" width="480"/></td>
-    <td><img src="test images/plate2_detected.jpg" width="480"/></td>
+    <td><img src="test images/plate1_detected.jpg" width="360"/></td>
+    <td><img src="test images/plate2_detected.jpg" width="360"/></td>
   </tr>
   <tr>
-    <td><img src="test images/plate3_detected.jpg" width="480"/></td>
-    <td><img src="test images/plate4_detected.jpg" width="480"/></td>
+    <td><img src="test images/plate3_detected.jpg" width="360"/></td>
+    <td><img src="test images/plate4_detected.jpg" width="360"/></td>
   </tr>
 </table>
 
@@ -56,11 +56,13 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
 
 <table>
   <tr>
-    <td><img src="assets/yolo_map50_95_curve.png" width="480"/></td>
-    <td><img src="assets/yolo_validation_map50.png" width="480"/></td>
+    <td colspan="3" align="center"><img src="assets/yolo_map50_95_curve.png" width="960"/></td>
   </tr>
   <tr>
     <td><img src="assets/yolo_recall_curve.png" width="480"/></td>
+    <td><img src="assets/yolo_validation_map50.png" width="480"/></td>
+  </tr>
+  <tr>
     <td><img src="assets/yolo_training_losses.png" width="480"/></td>
     <td><img src="assets/yolo_precision_curve.png" width="480"/></td>
   </tr>
