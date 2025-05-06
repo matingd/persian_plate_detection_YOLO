@@ -52,7 +52,7 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
 
 ---
 
-## 📊 Benchmarks & Metrics
+## 📊 Benchmarks & Metrics for plate ditection
 
 <table>
   <tr>
@@ -65,6 +65,20 @@ Download BraTS 2020 dataset from \[[kaggle website](https://www.kaggle.com/datas
   <tr>
     <td><img src="assets/yolo_training_losses.png" width="480"/></td>
     <td><img src="assets/yolo_precision_curve.png" width="480"/></td>
+  </tr>
+</table>
+
+---
+
+## 📊 Benchmarks & Metrics for digits ditection
+
+<table>
+  <tr>
+    <td colspan="3" align="center"><img src="assets/digits_map_curves.png" width="960"/></td>
+  </tr>
+  <tr>
+    <td><img src="assets/digits_precision_recall.png" width="480"/></td>
+    <td><img src="assets/digits_training_losses.png" width="480"/></td>
   </tr>
 </table>
 
